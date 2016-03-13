@@ -1,0 +1,24 @@
+{
+  "name": "ng-countries-and-capitals-app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Carlie Copeland <carliecope@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-animate": "^1.5.0"
+  }
+}
