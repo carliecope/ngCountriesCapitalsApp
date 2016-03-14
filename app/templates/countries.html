@@ -1,13 +1,21 @@
-<table>
-	<div class="homeBtnCont">
-		<button>Home</button>
-	</div>
-	<tr>
-		<th>Name</th>
-		<th>Country Code</th>
-		<th>Capital</th>
-		<th>Area in Sq. Km</th>
-		<th>Population</th>
-		<th>Continent</th>
+<div class="homeBtnCont">
+	<button class="homeBtn">Home</button>
+</div>
+<table class="ctryTable">
+	<tr class="tblHeadings">
+		<th class="nameCol">Name</th>
+		<th class="countryCol">Country Code</th>
+		<th class="capitalCol">Capital</th>
+		<th class="areaCol">Area in Sq. Km</th>
+		<th class="popCol">Population</th>
+		<th class="continentCol">Continent</th>
+	</tr>
+	<tr ng-repeat="country in countries | orderBy:'name'">
+		<td>{{country.name}}</td>
+        <td>{{country.code}}</td>
+        <td>{{country.capital}}</td>
+        <td>{{country.area}}</td>
+        <td>{{country.pop}}</td>
+        <td>{{country.continent}}</td>
 	</tr>
 </table>

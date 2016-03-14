@@ -3,3 +3,98 @@ html {
 
 *, *::after, *::before {
   box-sizing: inherit; }
+
+/*@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);*/
+html {
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #2A221E; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #2A221E; }
+
+a:hover, a:active {
+  text-decoration: none;
+  color: #2A221E; }
+
+/*----------------------Header----------------------*/
+.header {
+  width: 100%;
+  text-align: center;
+  margin: 2em 0; }
+
+/*----------------------route Section----------------------*/
+.routeCont {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  .routeCont::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+/*----------------------Home----------------------*/
+.intro {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+  display: block; }
+  .intro:last-child {
+    margin-right: 0; }
+
+.btnCont {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  display: block;
+  text-align: center; }
+  .btnCont:last-child {
+    margin-right: 0; }
+
+/*----------------------Countries----------------------*/
+.homeBtnCont {
+  width: 100%;
+  display: block; }
+
+.homeBtn {
+  margin: 1em 0; }
+
+.ctryTable {
+  width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px black solid; }
+
+/*----------------------Country----------------------*/
+.ctryCont {
+  width: 100%;
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px black solid; }
+
+.ctryInfoCont {
+  display: table-cell;
+  width: 50%;
+  padding: 2.35765%; }
+
+.ctryGraphicsCont {
+  display: table-cell;
+  width: 50%;
+  padding: 2.35765%; }
+
+.ctryImgCont {
+  width: 100%;
+  display: block; }
+
+.ctryFlagCont {
+  width: 100%; }

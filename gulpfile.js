@@ -38,7 +38,7 @@ gulp.task('sass', function() {
       includePaths: require('node-bourbon').includePaths,
       includePaths: require('node-neat').includePaths
     }))
-    .pipe(gulp.dest('css/'))
+    .pipe(gulp.dest('./app/css/'))
     .pipe(connect.reload());
 }); 
 
@@ -49,12 +49,13 @@ gulp.task('watch', function() {
   gulp.watch(['app/**/*.html'], ['html']);
 }); 
 
-// Styles build task, concatenates all the files
+/* Styles build task, concatenates all the files
 gulp.task('styles', function() {
   return gulp.src('app/css/*.css')
     .pipe(concat('styles.css'))
     .pipe(gulp.dest('app/build/css'));
-});
+}); 
+*/
 
 // Default task
 gulp.task('default', ['jshint', 'sass', 'watch', 'connect']);

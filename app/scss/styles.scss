@@ -1,6 +1,7 @@
 @import "bourbon";
 @import "neat";
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+/*@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);*/
+
 
 html {
   box-sizing: border-box;
@@ -21,3 +22,62 @@ a:hover, a:active {
     text-decoration: none;
     color: #2A221E;
 }
+/*----------------------Header----------------------*/
+.header {
+	@include fill-parent;
+	text-align: center;
+	margin: 2em 0;
+}
+/*----------------------route Section----------------------*/
+.routeCont {
+	@include outer-container;
+}
+/*----------------------Home----------------------*/
+.intro {
+	@include span-columns(6);
+	@include shift(3); 
+	display: block;
+
+}
+.btnCont {
+	@include span-columns(12);
+	display: block;
+	text-align: center;
+}
+/*----------------------Countries----------------------*/
+.homeBtnCont {
+	@include fill-parent;
+	display: block;
+}
+.homeBtn {
+	margin: 1em 0;
+}
+.ctryTable {
+	@include fill-parent;
+	@include row(table);
+	border: 1px black solid;
+}
+/*----------------------Country----------------------*/
+.ctryCont {
+	@include fill-parent;
+	@include row(table);
+	border: 1px black solid;
+}
+.ctryInfoCont {
+	@include span-columns(6);
+	@include pad();
+}
+.ctryGraphicsCont {
+	@include span-columns(6);
+	@include pad();
+}
+.ctryImgCont {
+	@include fill-parent;
+	display: block;
+}
+.ctryFlagCont {
+	@include fill-parent;
+}
+
+
+
