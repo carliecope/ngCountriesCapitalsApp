@@ -64,10 +64,16 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		
 		//Get countries list from 'countryInfo' endpoint
 		$http.get(
-			'http://api.geonames.org/countryInfoJSON?username=carliecope'
+			'http://api.geonames.org/countryInfoJSON?username=carliecope', { cache: true }
 			).then(function(response) {
 				console.log(response);
-				$scope.ctryList = response.data.geonames;
+				var ctryList = response.data.geonames;
+				for(i = 0; i < ctryList.length; i++) {
+					if(ctryList[i].capital === "") {
+						ctryList.splice(i, 1);
+					}
+				}
+				$scope.ctryList = ctryList;
 			}, function(response) {
 				console.log('error');
 			});
@@ -81,6 +87,9 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 			$location.path('/countries/' + country + '/' + capital);
 		}; 
+		$scope.toHome = function() {
+			$location.path('/');
+		};
 	}])
 	.controller('CountryCtrl', ['$scope', '$http', '$routeParams', '$location', 'currentCountry', function($scope, $http, $routeParams, $location, currentCountry) {
 		//Scope variables 
@@ -101,7 +110,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			url: 'http://api.geonames.org/searchJSON?q=' + $scope.country + '&maxRows=10&username=carliecope',
 			method: 'GET',
 			params: requestSearch,
-			// cache: true
+			cache: true
 			}).then(function(response) {
 				console.log(response);
 
@@ -126,7 +135,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			url: 'http://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope',
 			method: 'GET',
 			params: requestNeighbors,
-			// cache: true
+			cache: true
 		}).then(function(response) {
 			console.log(response);
 			$scope.neighborNum = response.data.geonames.length;
