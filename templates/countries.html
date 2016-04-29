@@ -11,7 +11,7 @@
 		<th class="continentCol">Continent</th>
 	</tr>
 	<tr ng-repeat="ctry in ctryList">
-		<td ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm)">{{ctry.countryName}}</td>
+		<td ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)">{{ctry.countryName}}</td>
         <td>{{ctry.countryCode}}</td>
         <td>{{ctry.capital}}</td>
         <td>{{ctry.areaInSqKm}}</td>

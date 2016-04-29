@@ -19,6 +19,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		var geonameId = 0;
 		var capital = "";
 		var country = "";
+		var code = "";
 		
 		return {
 			setCtryPop: function(population) {
@@ -50,6 +51,12 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			},
 			getCapital: function() {
 				return capital;
+			},
+			setCode: function(newCode) {
+				code = newCode;
+			},
+			getCode: function() {
+				return code;
 			}
 		};
 	})
@@ -68,6 +75,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			).then(function(response) {
 				console.log(response);
 				var ctryList = response.data.geonames;
+
 				for(i = 0; i < ctryList.length; i++) {
 					if(ctryList[i].capital === "") {
 						ctryList.splice(i, 1);
@@ -78,12 +86,13 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 				console.log('error');
 			});
 
-		$scope.toCountry = function(country, capital, geonameId, population, area) {
+		$scope.toCountry = function(country, capital, geonameId, population, area, code) {
 			currentCountry.setGeonameId(geonameId);
 			currentCountry.setCtryPop(population);
 			currentCountry.setCtryArea(area);
 			currentCountry.setCountry(country);
 			currentCountry.setCapital(capital);
+			currentCountry.setCode(code);
 
 			$location.path('/countries/' + country + '/' + capital);
 		}; 
@@ -94,36 +103,36 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 	.controller('CountryCtrl', ['$scope', '$http', '$routeParams', '$location', 'currentCountry', function($scope, $http, $routeParams, $location, currentCountry) {
 		//Scope variables 
 		$scope.country = currentCountry.getCountry();
-		console.log($scope.country);
 		$scope.capital = currentCountry.getCapital();
 		$scope.ctryPop = currentCountry.getCtryPop();
 		$scope.ctryArea = currentCountry.getCtryArea();
 		$scope.geonameId = currentCountry.getGeonameId();
+		$scope.codeUpperCase = currentCountry.getCode();
+		$scope.codeLowerCase = currentCountry.getCode().toLowerCase();
 
 		//Get capital population from 'search' endpoint
 		var requestSearch = {
-			name_equals: $scope.country,
+			name_equals: $scope.capital,
 			isNameRequired: true
 		};
 
 		$http({
-			url: 'http://api.geonames.org/searchJSON?q=' + $scope.country + '&maxRows=10&username=carliecope',
+			url: 'http://api.geonames.org/searchJSON?q=' + $scope.capital + '&featureCode=PPLC&maxRows=10&username=carliecope',
 			method: 'GET',
 			params: requestSearch,
-			cache: true
 			}).then(function(response) {
+
 				console.log(response);
 
-				for(i = 0; i < response.data.geonames.length; i++) {
-
-					// if (response.data.geonames[i].countryName.valueOf() === $scope.country.valueOf()) {
-					// 	$scope.capitalPop = response.data.geonames[i].population;
-					// 	console.log($scope.capitalPop);
-					// }
+				if(response.data.geonames.length != 0) {
+					$scope.capitalPop = response.data.geonames[0].population;
+				} else {
+					$scope.capitalPop = "NA";
 				}
-				console.log($scope.country);
+				
 			}, function(response) {
 				console.log('error');
+
 			});
 
 		//Get neighbors from 'neighbors' endpoint 
@@ -135,7 +144,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			url: 'http://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope',
 			method: 'GET',
 			params: requestNeighbors,
-			cache: true
 		}).then(function(response) {
 			console.log(response);
 			$scope.neighborNum = response.data.geonames.length;
@@ -144,9 +152,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			for(i=0; i < $scope.neighborNum; i++) {
 				$scope.neighbors.push(response.data.geonames[i].countryName); 
 			}
-
-			console.log($scope.neighborNum, $scope.neighbors);
-			console.log($scope.country);
 		}, function(response) {
 			console.log('error');
 		});
