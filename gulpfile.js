@@ -59,3 +59,6 @@ gulp.task('styles', function() {
 
 // Default task
 gulp.task('default', ['jshint', 'sass', 'watch', 'connect']);
+
+
+

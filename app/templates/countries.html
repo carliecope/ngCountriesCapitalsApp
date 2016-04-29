@@ -10,12 +10,12 @@
 		<th class="popCol">Population</th>
 		<th class="continentCol">Continent</th>
 	</tr>
-	<tr ng-repeat="country in countries | orderBy:'name'">
-		<td>{{country.name}}</td>
-        <td>{{country.code}}</td>
-        <td>{{country.capital}}</td>
-        <td>{{country.area}}</td>
-        <td>{{country.pop}}</td>
-        <td>{{country.continent}}</td>
+	<tr ng-repeat="ctry in ctryList">
+		<td ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm)">{{ctry.countryName}}</td>
+        <td>{{ctry.countryCode}}</td>
+        <td>{{ctry.capital}}</td>
+        <td>{{ctry.areaInSqKm}}</td>
+        <td>{{ctry.population}}</td>
+        <td>{{ctry.continentName}}</td>
 	</tr>
 </table>
