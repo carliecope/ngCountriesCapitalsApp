@@ -61,6 +61,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 	})
 	.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
+		$scope.header_home = true;
 
 		$scope.viewCountries = function() {
 			console.log("view countries");
@@ -68,7 +69,8 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 	}])
 	.controller('CountriesCtrl', ['$scope', '$http', '$location', 'currentCountry', function($scope, $http, $location, currentCountry) {
-		
+		$scope.header_home = false;
+
 		//Get countries list from 'countryInfo' endpoint
 		$http.get(
 			'http://api.geonames.org/countryInfoJSON?username=carliecope', { cache: true }
@@ -101,13 +103,21 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 	}])
 	.controller('CountryCtrl', ['$scope', '$http', '$routeParams', '$location', 'currentCountry', function($scope, $http, $routeParams, $location, currentCountry) {
+		$scope.header_home = false;
+
 		//Scope variables 
 		$scope.country = currentCountry.getCountry();
+
 		$scope.capital = currentCountry.getCapital();
+
 		$scope.ctryPop = currentCountry.getCtryPop();
+
 		$scope.ctryArea = currentCountry.getCtryArea();
+
 		$scope.geonameId = currentCountry.getGeonameId();
+
 		$scope.codeUpperCase = currentCountry.getCode();
+
 		$scope.codeLowerCase = currentCountry.getCode().toLowerCase();
 
 		//Get capital population from 'search' endpoint
@@ -124,8 +134,9 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 				console.log(response);
 
-				if(response.data.geonames.length != 0) {
+				if(response.data.geonames.length !== 0) {
 					$scope.capitalPop = response.data.geonames[0].population;
+
 				} else {
 					$scope.capitalPop = "NA";
 				}
@@ -147,22 +158,22 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		}).then(function(response) {
 			console.log(response);
 			$scope.neighborNum = response.data.geonames.length;
-			$scope.neighbors = [];
+
+			var neighbors = [];
 
 			for(i=0; i < $scope.neighborNum; i++) {
-				$scope.neighbors.push(response.data.geonames[i].countryName); 
+				neighbors.push(response.data.geonames[i].countryName);
+				$scope.neighbors = neighbors.join(', ');
 			}
 		}, function(response) {
 			console.log('error');
 		});
 
 		$scope.backToCountries = function() {
-
 			$location.path('/countries');
 		}; 
 
 		$scope.toHome = function() {
-
 			$location.path('/');
 		}; 
 	}]);

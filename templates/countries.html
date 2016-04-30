@@ -1,21 +1,28 @@
+<header>
+	<h1 ng-class="header_home ? 'header_home' : 'header_routes'">Countries &#38; Capitals</h1>
+</header>
 <div class="homeBtnCont">
 	<button class="homeBtn" ng-click="toHome()">Home</button>
 </div>
 <table class="ctryTable">
-	<tr class="tblHeadings">
-		<th class="nameCol">Name</th>
-		<th class="countryCol">Country Code</th>
-		<th class="capitalCol">Capital</th>
-		<th class="areaCol">Area in Sq. Km</th>
-		<th class="popCol">Population</th>
-		<th class="continentCol">Continent</th>
-	</tr>
-	<tr ng-repeat="ctry in ctryList">
-		<td ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)">{{ctry.countryName}}</td>
-        <td>{{ctry.countryCode}}</td>
-        <td>{{ctry.capital}}</td>
-        <td>{{ctry.areaInSqKm}}</td>
-        <td>{{ctry.population}}</td>
-        <td>{{ctry.continentName}}</td>
-	</tr>
+	<thead>
+		<tr>
+			<th class="country">Name</th>
+			<th class="code">Country Code</th>
+			<th class="capital">Capital</th>
+			<th class="area">Area in Sq. Km</th>
+			<th class="population">Population</th>
+			<th class="continent">Continent</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-even="'even'">
+			<td class="country" >{{ctry.countryName}}</td>
+	        <td class="code">{{ctry.countryCode}}</td>
+	        <td class="capital">{{ctry.capital}}</td>
+	        <td class="area" >{{ctry.areaInSqKm}}</td>
+	        <td class="population">{{ctry.population}}</td>
+	        <td class="continent">{{ctry.continentName}}</td>
+		</tr>
+	</tbody>
 </table>
