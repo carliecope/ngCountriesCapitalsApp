@@ -1,3 +1,6 @@
+<header>
+	<h1 ng-class="header_home ? 'header_home' : 'header_routes'">Countries &#38; Capitals</h1>
+</header>
 <div class='ctryCont'>
 	<div class="ctryInfoCont">
 		<h2>Country: {{ country }}</h2>
@@ -5,7 +8,7 @@
 		<h3>Area: {{ ctryArea | number: 0 }} km<sup>2</sup></h3>
 		<h3>Capital: {{ capital }}</h3>
 		<h3>Population of Capital: {{ capitalPop | number: 0 }}</h3>
-		<h3>{{ neighborNum }} Neighbors {{ neighbors }}</h3>
+		<h3>{{ neighborNum }} Neighboring Countries: {{ neighbors }}</h3>
 		<div class="ctryBtnCont">
 			<button ng-click="toHome()">Home</button>
 			<button ng-click="backToCountries()">Back</button>

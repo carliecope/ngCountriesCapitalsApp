@@ -1,61 +1,173 @@
 @import "bourbon";
 @import "neat";
-/*@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);*/
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+$lg_min_width: 1200px;
+
+$off_white: #ECECEC;
+$gray_dk: #333333;
+$brown_btn: #2A221E;
+$brown_btn_hover: #3E2C21;
+$swiss_coffee: #D8D2CF;
 
 
 html {
   box-sizing: border-box;
   list-style-type: none;
+  background-color: $off_white;
 
   font-family: 'Source Sans Pro', sans-serif;
-  color: #2A221E;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 a:link, a:visited {
     text-decoration: none;
-    color: #2A221E;
 }
 
 a:hover, a:active {
     text-decoration: none;
-    color: #2A221E;
 }
 /*----------------------Header----------------------*/
-.header {
+.header_home {
 	@include fill-parent;
 	text-align: center;
 	margin: 2em 0;
+	font-size: 5em;
+	color: $gray_dk;
 }
+.header_routes {
+	@include fill-parent;
+	text-align: center;
+	color: $gray_dk;
+	margin: 1em 0 0.2em 0;
+    font-size: 3.7em;
+}
+
 /*----------------------route Section----------------------*/
 .routeCont {
-	@include outer-container;
+	
 }
 /*----------------------Home----------------------*/
 .intro {
-	@include span-columns(6);
-	@include shift(3); 
-	display: block;
-
+	@include fill-parent;
+	font-size: 1em;
+	text-align: center;
+	padding: 0.5em 1em;
 }
 .btnCont {
-	@include span-columns(12);
-	display: block;
+	@include fill-parent;
 	text-align: center;
+}
+.toCountriesBtn {
+	font-size: 3em;
+	background-color: $brown_btn;
+	color: white;
+	border-radius: 0.3em;
+	padding: 0.5em 1em;
+
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		background-color: $brown_btn_hover;
+		cursor: pointer;
+	}
 }
 /*----------------------Countries----------------------*/
 .homeBtnCont {
 	@include fill-parent;
-	display: block;
+	text-align: center;
+	overflow: hidden;
+    padding-bottom: 1em;
 }
 .homeBtn {
-	margin: 1em 0;
+	font-size: 1.5em;
+	background-color: $brown_btn;
+	color: white;
+	border-radius: 0.3em;
+	padding: 0.25em 0.5em;
+
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		background-color: $brown_btn_hover;
+		cursor: pointer;
+	}
 }
 .ctryTable {
 	@include fill-parent;
-	@include row(table);
+	@include outer-container;
+	height: 30em;
 	border: 1px black solid;
+	border-collapse: collapse;
+	text-align: center;
+	table-layout: fixed; 
+	overflow-y: auto;
+
+	thead, tr {
+		@include fill-parent;
+		overflow: hidden;
+	}
+	td, th {
+		overflow: hidden;
+		font-size: 1.8em;
+		vertical-align: middle;
+	}
+	thead {
+		background-color: $brown_btn;
+		color: white;
+		overflow: hidden;
+	}
+}
+.even {
+	background-color: $swiss_coffee;
+}
+.country {
+	@include span-columns(4);
+	
+	@media screen and (min-width: $lg_min_width) {
+		@include span-columns(3);
+	}
+}
+.code {
+	display: none;
+
+	@media screen and (min-width: $lg_min_width) {
+		display: initial;
+		@include span-columns(1);
+	}
+} 
+.capital {
+	@include span-columns(4);
+
+	@media screen and (min-width: $lg_min_width) {
+		@include span-columns(2);
+	}
+}
+.area {
+	display: none;
+
+	@media screen and (min-width: $lg_min_width) {
+		display: initial;
+		@include span-columns(2);
+	}
+}
+.population {
+	display: none;
+
+	@media screen and (min-width: $lg_min_width) {
+		display: initial;
+		@include span-columns(2);
+	}
+} 
+.continent {
+	@include span-columns(4);
+
+	@media screen and (min-width: $lg_min_width) {
+		@include span-columns(2);
+	}
 }
 /*----------------------Country----------------------*/
 .ctryCont {
