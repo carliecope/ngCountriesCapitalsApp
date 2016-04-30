@@ -4,7 +4,7 @@
 
 $lg_min_width: 1200px;
 
-$off_white: #ECECEC;
+$off_white: white;
 $gray_dk: #333333;
 $brown_btn: #2A221E;
 $brown_btn_hover: #3E2C21;
@@ -32,8 +32,8 @@ a:hover, a:active {
 .header_home {
 	@include fill-parent;
 	text-align: center;
-	margin: 2em 0;
-	font-size: 5em;
+	margin: 1em 0;
+    font-size: 2em;
 	color: $gray_dk;
 }
 .header_routes {
@@ -41,7 +41,7 @@ a:hover, a:active {
 	text-align: center;
 	color: $gray_dk;
 	margin: 1em 0 0.2em 0;
-    font-size: 3.7em;
+    font-size: 1.2em;
 }
 
 /*----------------------route Section----------------------*/
@@ -60,17 +60,19 @@ a:hover, a:active {
 	text-align: center;
 }
 .toCountriesBtn {
-	font-size: 3em;
+	font-size: 1em;
 	background-color: $brown_btn;
+	border: 1px solid $brown_btn;
 	color: white;
 	border-radius: 0.3em;
-	padding: 0.5em 1em;
+	padding: 0.5em 0.7em;
 
 	&:focus {
 		outline: 0;
 	}
 	&:hover {
 		background-color: $brown_btn_hover;
+		border: 1px solid $brown_btn_hover;
 		cursor: pointer;
 	}
 }
@@ -82,8 +84,9 @@ a:hover, a:active {
     padding-bottom: 1em;
 }
 .homeBtn {
-	font-size: 1.5em;
+	font-size: 0.5em;
 	background-color: $brown_btn;
+	border: 1px solid $brown_btn;
 	color: white;
 	border-radius: 0.3em;
 	padding: 0.25em 0.5em;
@@ -93,6 +96,7 @@ a:hover, a:active {
 	}
 	&:hover {
 		background-color: $brown_btn_hover;
+		border: 1px solid $brown_btn_hover;
 		cursor: pointer;
 	}
 }
@@ -100,7 +104,6 @@ a:hover, a:active {
 	@include fill-parent;
 	@include outer-container;
 	height: 30em;
-	border: 1px black solid;
 	border-collapse: collapse;
 	text-align: center;
 	table-layout: fixed; 
@@ -112,7 +115,7 @@ a:hover, a:active {
 	}
 	td, th {
 		overflow: hidden;
-		font-size: 1.8em;
+		font-size: 0.8em;
 		vertical-align: middle;
 	}
 	thead {
@@ -172,24 +175,46 @@ a:hover, a:active {
 /*----------------------Country----------------------*/
 .ctryCont {
 	@include fill-parent;
-	@include row(table);
-	border: 1px black solid;
-}
-.ctryInfoCont {
-	@include span-columns(6);
-	@include pad();
 }
 .ctryGraphicsCont {
-	@include span-columns(6);
-	@include pad();
-}
-.ctryImgCont {
 	@include fill-parent;
-	display: block;
+	text-align: center;
+	padding: 0 0.8em;
+
+	@media screen and (min-width: $lg_min_width) {
+		@include span-columns(6);
+	}
 }
-.ctryFlagCont {
+.flag_cont {
 	@include fill-parent;
+	overflow: hidden;
+	height: 8em;
+	margin: 0.5em 0;
 }
+.flag {
+	border-radius: 0.2em;
+	height: 100%;
+}
+.map_cont {
+	@include fill-parent;
+	overflow: hidden;
+    height: 8em;
+    background-color: white;
+    border-radius: 0.3em;
+    padding: 0.2em 0;
+}
+.map {
+	border-radius: 0.2em;
+	height: 100%;
+}
+.ctryInfoCont {
+	@include fill-parent;
+
+	@media screen and (min-width: $lg_min_width) {
+		@include span-columns(6);
+	}
+}
+
 
 
 
