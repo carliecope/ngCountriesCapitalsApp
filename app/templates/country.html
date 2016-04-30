@@ -2,9 +2,17 @@
 	<h1 ng-class="header_home ? 'header_home' : 'header_routes'">Countries &#38; Capitals</h1>
 </header>
 <div class='ctryCont'>
+	<div class="ctryGraphicsCont">
+		<div class="flag_cont">
+			<img class="flag" ng-src="http://www.geonames.org/flags/x/{{ codeLowerCase }}.gif"/>
+		</div>
+		<div class="map_cont">
+			<img class="map" ng-src="http://www.geonames.org/img/country/250/{{ codeUpperCase }}.png"/>
+		</div>
+	</div>
 	<div class="ctryInfoCont">
-		<h2>Country: {{ country }}</h2>
-		<h3>Population of Country: {{ ctryPop | number: 0 }}</h3>
+		<h2>{{ country }}</h2>
+		<h3>Population: {{ ctryPop | number: 0 }}</h3>
 		<h3>Area: {{ ctryArea | number: 0 }} km<sup>2</sup></h3>
 		<h3>Capital: {{ capital }}</h3>
 		<h3>Population of Capital: {{ capitalPop | number: 0 }}</h3>
@@ -12,14 +20,6 @@
 		<div class="ctryBtnCont">
 			<button ng-click="toHome()">Home</button>
 			<button ng-click="backToCountries()">Back</button>
-		</div>
-	</div>
-	<div class="ctryGraphicsCont">
-		<div class="ctryImgCont">
-			<img ng-src="http://www.geonames.org/flags/x/{{ codeLowerCase }}.gif"/>
-		</div>
-		<div class="ctryFlagCont">
-			<img ng-src="http://www.geonames.org/img/country/250/{{ codeUpperCase }}.png"/>
 		</div>
 	</div>
 </div>
