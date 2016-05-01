@@ -16,7 +16,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-even="'even'">
+		<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-odd="'odd'">
 			<td class="country" >{{ctry.countryName}}</td>
 	        <td class="code">{{ctry.countryCode}}</td>
 	        <td class="capital">{{ctry.capital}}</td>

@@ -3,18 +3,17 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 $lg_min_width: 1200px;
+$md_min_width: 768px;
 
-$off_white: white;
-$gray_dk: #333333;
-$brown_btn: #2A221E;
-$brown_btn_hover: #3E2C21;
-$swiss_coffee: #D8D2CF;
+$off_white: #ECECEC;
+$gray_dk: #464646;
+$gray_lt: #EBEAEA;
 
 
 html {
   box-sizing: border-box;
   list-style-type: none;
-  background-color: $off_white;
+  background-color: $gray_dk;
 
   font-family: 'Source Sans Pro', sans-serif;
 }
@@ -29,24 +28,31 @@ a:hover, a:active {
     text-decoration: none;
 }
 /*----------------------Header----------------------*/
+.header {
+	@include fill-parent;
+	overflow: hidden;
+	text-align: center;
+	color: white;
+	margin: 0;
+    font-size: 1.2em;
+}
 .header_home {
 	@include fill-parent;
 	text-align: center;
 	margin: 1em 0;
     font-size: 2em;
-	color: $gray_dk;
+	color: white;
+
+	@media screen and (min-width: $md_min_width) {
+		margin: 5em 0 0 0;
+	}
 }
 .header_routes {
 	@include fill-parent;
 	text-align: center;
-	color: $gray_dk;
-	margin: 1em 0 0.2em 0;
+	color: white;
+	margin: 0.5em 0 0.2em 0;
     font-size: 1.2em;
-}
-
-/*----------------------route Section----------------------*/
-.routeCont {
-	
 }
 /*----------------------Home----------------------*/
 .intro {
@@ -54,6 +60,11 @@ a:hover, a:active {
 	font-size: 1em;
 	text-align: center;
 	padding: 0.5em 1em;
+	color: white;
+
+	@media screen and (min-width: $md_min_width) {
+		padding: 4em 8em 2em 8em;
+	}
 }
 .btnCont {
 	@include fill-parent;
@@ -61,9 +72,9 @@ a:hover, a:active {
 }
 .toCountriesBtn {
 	font-size: 1em;
-	background-color: $brown_btn;
-	border: 1px solid $brown_btn;
-	color: white;
+	background-color: white;
+	border: 1px solid white;
+	color: $gray_dk;
 	border-radius: 0.3em;
 	padding: 0.5em 0.7em;
 
@@ -71,8 +82,8 @@ a:hover, a:active {
 		outline: 0;
 	}
 	&:hover {
-		background-color: $brown_btn_hover;
-		border: 1px solid $brown_btn_hover;
+		background-color: $off_white;
+		border: 1px solid $off_white;
 		cursor: pointer;
 	}
 }
@@ -85,9 +96,9 @@ a:hover, a:active {
 }
 .homeBtn {
 	font-size: 0.5em;
-	background-color: $brown_btn;
-	border: 1px solid $brown_btn;
-	color: white;
+	background-color: white;
+	border: 1px solid white;
+	color: $gray_dk;
 	border-radius: 0.3em;
 	padding: 0.25em 0.5em;
 
@@ -95,14 +106,15 @@ a:hover, a:active {
 		outline: 0;
 	}
 	&:hover {
-		background-color: $brown_btn_hover;
-		border: 1px solid $brown_btn_hover;
+		background-color: $off_white;
+		border: 1px solid $off_white;
 		cursor: pointer;
 	}
 }
 .ctryTable {
 	@include fill-parent;
 	@include outer-container;
+	background-color: white;
 	height: 30em;
 	border-collapse: collapse;
 	text-align: center;
@@ -119,13 +131,15 @@ a:hover, a:active {
 		vertical-align: middle;
 	}
 	thead {
-		background-color: $brown_btn;
-		color: white;
+		background-color: white;
+		border-bottom: 3px solid $gray_dk;
+		border-top: 3px solid $gray_dk;
+		color: $gray_dk;
 		overflow: hidden;
 	}
 }
-.even {
-	background-color: $swiss_coffee;
+.odd {
+	background-color: $gray_lt;
 }
 .country {
 	@include span-columns(4);
@@ -173,11 +187,51 @@ a:hover, a:active {
 	}
 }
 /*----------------------Country----------------------*/
+.header_left {
+	@include span-columns(2 of 12);
+	text-align: center;
+	height: 2em;
+}
+.header_mid {
+	@include span-columns(8 of 12);
+	text-align: center;
+	height: 2em;
+	
+	h1 {
+		font-size: 1.2em;
+		margin: 0.2em 0 0 0;
+		color: white;
+	}
+}
+.header_right {
+	@include span-columns(2 of 12);
+	text-align: center;
+	height: 2em;
+}
+.header_btn {
+	@include fill-parent;
+	font-size: 0.5em;
+	background-color: transparent;
+	border: 1px solid transparent;
+	color: white;
+	padding: 0.25em 0.5em;
+	height: 100%;
+	
+	&:focus {
+		outline: 0;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 .ctryCont {
 	@include fill-parent;
 }
 .ctryGraphicsCont {
 	@include fill-parent;
+	background-color: white;
+	border-top: 1px solid $gray_dk;
 	text-align: center;
 	padding: 0 0.8em;
 
@@ -209,12 +263,37 @@ a:hover, a:active {
 }
 .ctryInfoCont {
 	@include fill-parent;
+	overflow: hidden;
+	color: white;
 
 	@media screen and (min-width: $lg_min_width) {
 		@include span-columns(6);
 	}
 }
-
+.country_title {
+	text-align: center;
+	margin: 0.2em 0;
+	font-size: 1.2em;
+}
+.line_container {
+	@include fill-parent;
+	overflow: hidden;
+	margin: 0.2em 0;
+}
+.left {
+	@include span-columns(6 of 12);
+	text-align: right;
+	overflow: hidden;
+	margin: 0;
+	font-size: 1em;
+}
+.right {
+	@include span-columns(6 of 12);
+	overflow: hidden;
+	margin: 0;
+	padding-left: 0.5em;
+	font-size: 1em;
+}
 
 
 
