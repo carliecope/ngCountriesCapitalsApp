@@ -1,50 +1,50 @@
-<header class="header">
-	<div class="header_left">
-		<button class="header_btn" ng-click="toHome()">Home</button>
-	</div>
-	<div class="header_mid">
-		<h1 class="header_title">Countries &#38; Capitals</h1>
-	</div>
-	<div class="header_right">
-		<button class="header_btn" ng-click="backToCountries()">Back</button>
-	</div>
-</header>
+<div class="wrapper">
+	<header class="header">
+		<div class="header_left">
+			<button class="header_btn" ng-click="toHome()">Home</button>
+		</div>
+		<div class="header_mid">
+			<h1 class="header_title">Countries &#38; Capitals</h1>
+		</div>
+		<div class="header_right">
+			<button class="header_btn" ng-click="backToCountries()">Back</button>
+		</div>
+	</header>
+	<div class='ctryCont'>
+		<div class="ctryGraphicsCont">
+			<div class="flag_cont">
+				<img class="flag" ng-src="http://www.geonames.org/flags/x/{{ codeLowerCase }}.gif"/>
+			</div>
+			<div class="map_cont">
+				<img class="map" ng-src="http://www.geonames.org/img/country/250/{{ codeUpperCase }}.png"/>
+			</div>
+		</div>
+		<div class="ctryInfoCont">
+			<h2 class="country_title">{{ country }}</h2>
+			<div class="line_container">
+				<h3 class="left">Population:</h3>
+				<h3 class="right">{{ ctryPop | number: 0 }}</h3>
+			</div>
+			
+			<div class="line_container">
+				<h3 class="left">Area:</h3>
+				<h3 class="right">{{ ctryArea | number: 0 }} km<sup>2</sup></h3>
+			</div>
 
-<div class='ctryCont'>
-	<div class="ctryGraphicsCont">
-		<div class="flag_cont">
-			<img class="flag" ng-src="http://www.geonames.org/flags/x/{{ codeLowerCase }}.gif"/>
-		</div>
-		<div class="map_cont">
-			<img class="map" ng-src="http://www.geonames.org/img/country/250/{{ codeUpperCase }}.png"/>
-		</div>
-	</div>
-	<div class="ctryInfoCont">
-		<h2 class="country_title">{{ country }}</h2>
-		<div class="line_container">
-			<h3 class="left">Population:</h3>
-			<h3 class="right">{{ ctryPop | number: 0 }}</h3>
-		</div>
-		
-		<div class="line_container">
-			<h3 class="left">Area:</h3>
-			<h3 class="right">{{ ctryArea | number: 0 }} km<sup>2</sup></h3>
-		</div>
+			<div class="line_container">
+				<h3 class="left">Capital:</h3>
+				<h3 class="right">{{ capital }}</h3>
+			</div>
+			
+			<div class="line_container">
+				<h3 class="left">Population of Capital:</h3>
+				<h3 class="right">{{ capitalPop | number: 0 }}</h3>
+			</div>
 
-		<div class="line_container">
-			<h3 class="left">Capital:</h3>
-			<h3 class="right">{{ capital }}</h3>
-		</div>
-		
-		<div class="line_container">
-			<h3 class="left">Population of Capital:</h3>
-			<h3 class="right">{{ capitalPop | number: 0 }}</h3>
-		</div>
-
-		<div class="line_container">
-			<h3 class="left">{{ neighborNum }} Neighbors:</h3>
-			<h3 class="right">{{ neighbors }}</h3>
+			<div class="line_container">
+				<h3 class="left">{{ neighborNum }} Neighbors:</h3>
+				<h3 class="right">{{ neighbors }}</h3>
+			</div>
 		</div>
 	</div>
 </div>
-

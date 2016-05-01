@@ -1,30 +1,36 @@
-<header class="header">
-	<div class="header_left">
-		<button class="header_btn" ng-click="toHome()">Home</button>
-	</div>
-	<div class="header_mid">
-		<h1 class="header_title">Countries &#38; Capitals</h1>
+<header class="fixed">
+	<div class="header">
+		<div class="header_left">
+			<button class="header_btn" ng-click="toHome()">Home</button>
+		</div>
+		<div class="header_mid">
+			<h1 class="header_title">Countries &#38; Capitals</h1>
+		</div>
+		<table class="ctryTable">
+			<thead>
+				<tr>
+					<th class="country"><p>Name</p></th>
+					<th class="code"><p>Country Code</p></th>
+					<th class="capital"><p>Capital</p></th>
+					<th class="area"><p>Area in Sq. Km</p></th>
+					<th class="population"><p>Population</p></th>
+					<th class="continent"><p>Continent</p></th>
+				</tr>
+			</thead>
+		</table>
 	</div>
 </header>
-<table class="ctryTable">
-	<thead>
-		<tr>
-			<th class="country"><p>Name</p></th>
-			<th class="code"><p>Country Code</p></th>
-			<th class="capital"><p>Capital</p></th>
-			<th class="area"><p>Area in Sq. Km</p></th>
-			<th class="population"><p>Population</p></th>
-			<th class="continent"><p>Continent</p></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-odd="'odd'">
-			<td class="country"><p>{{ctry.countryName}}</p></td>
-	        <td class="code"><p>{{ctry.countryCode}}</p></td>
-	        <td class="capital"><p>{{ctry.capital}}</p></td>
-	        <td class="area"><p>{{ctry.areaInSqKm}}</p></td>
-	        <td class="population"><p>{{ctry.population}}</p></td>
-	        <td class="continent"><p>{{ctry.continentName}}</p></td>
-		</tr>
-	</tbody>
-</table>
+<div class="wrapper">
+	<table class="ctryTable table_2">
+		<tbody>
+			<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-odd="'odd'">
+				<td class="country"><p>{{ctry.countryName}}</p></td>
+		        <td class="code"><p>{{ctry.countryCode}}</p></td>
+		        <td class="capital"><p>{{ctry.capital}}</p></td>
+		        <td class="area"><p>{{ctry.areaInSqKm}}</p></td>
+		        <td class="population"><p>{{ctry.population}}</p></td>
+		        <td class="continent"><p>{{ctry.continentName}}</p></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
