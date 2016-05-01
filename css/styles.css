@@ -20,14 +20,19 @@ a:link, a:visited {
 a:hover, a:active {
   text-decoration: none; }
 
+body {
+  background-color: transparent; }
+
 /*----------------------Header----------------------*/
-.header {
-  width: 100%;
-  overflow: hidden;
-  text-align: center;
-  color: white;
-  margin: 0;
-  font-size: 1.2em; }
+.routeCont {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent; }
+  .routeCont::after {
+    clear: both;
+    content: "";
+    display: table; }
 
 .header_home {
   width: 100%;
@@ -39,12 +44,75 @@ a:hover, a:active {
     .header_home {
       margin: 5em 0 0 0; } }
 
-.header_routes {
+.header {
   width: 100%;
+  overflow: hidden;
   text-align: center;
   color: white;
-  margin: 0.5em 0 0.2em 0;
+  margin: 0;
   font-size: 1.2em; }
+
+.header_left {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  text-align: center;
+  height: 2em; }
+  .header_left:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .header_left {
+      height: 3em; } }
+
+.header_mid {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  text-align: center;
+  height: 2em; }
+  .header_mid:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .header_mid {
+      height: 3em; } }
+  .header_mid .header_title {
+    font-size: 1.2em;
+    margin: 0.2em 0 0 0;
+    color: white; }
+    @media screen and (min-width: 768px) {
+      .header_mid .header_title {
+        font-size: 1.8em; } }
+
+.header_right {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  text-align: center;
+  height: 2em; }
+  .header_right:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .header_right {
+      height: 3em; } }
+
+.header_btn {
+  width: 100%;
+  font-size: 0.5em;
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: white;
+  padding: 0.25em 0.5em;
+  height: 100%; }
+  .header_btn:focus {
+    outline: 0; }
+  .header_btn:hover {
+    cursor: pointer; }
+  @media screen and (min-width: 768px) {
+    .header_btn {
+      font-size: 0.8em; } }
 
 /*----------------------Home----------------------*/
 .intro {
@@ -55,7 +123,8 @@ a:hover, a:active {
   color: white; }
   @media screen and (min-width: 768px) {
     .intro {
-      padding: 4em 8em 2em 8em; } }
+      padding: 2em 8em;
+      font-size: 1.1em; } }
 
 .btnCont {
   width: 100%;
@@ -76,52 +145,34 @@ a:hover, a:active {
     cursor: pointer; }
 
 /*----------------------Countries----------------------*/
-.homeBtnCont {
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  padding-bottom: 1em; }
-
-.homeBtn {
-  font-size: 0.5em;
-  background-color: white;
-  border: 1px solid white;
-  color: #464646;
-  border-radius: 0.3em;
-  padding: 0.25em 0.5em; }
-  .homeBtn:focus {
-    outline: 0; }
-  .homeBtn:hover {
-    background-color: #ECECEC;
-    border: 1px solid #ECECEC;
-    cursor: pointer; }
-
 .ctryTable {
   width: 100%;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto;
   background-color: white;
   height: 30em;
   border-collapse: collapse;
   text-align: center;
   table-layout: fixed;
   overflow-y: auto; }
-  .ctryTable::after {
-    clear: both;
-    content: "";
-    display: table; }
   .ctryTable thead, .ctryTable tr {
     width: 100%;
     overflow: hidden; }
   .ctryTable td, .ctryTable th {
     overflow: hidden;
-    font-size: 0.8em;
-    vertical-align: middle; }
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    padding: 1px; }
+    .ctryTable td p, .ctryTable th p {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0.8em;
+      margin: 0.2em 0; }
+      @media screen and (min-width: 768px) {
+        .ctryTable td p, .ctryTable th p {
+          font-size: 1.2em; } }
   .ctryTable thead {
     background-color: white;
-    border-bottom: 3px solid #464646;
-    border-top: 3px solid #464646;
+    border-bottom: 2px solid #464646;
     color: #464646;
     overflow: hidden; }
 
@@ -213,53 +264,6 @@ a:hover, a:active {
         margin-right: 0; } }
 
 /*----------------------Country----------------------*/
-.header_left {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
-  text-align: center;
-  height: 2em; }
-  .header_left:last-child {
-    margin-right: 0; }
-
-.header_mid {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  text-align: center;
-  height: 2em; }
-  .header_mid:last-child {
-    margin-right: 0; }
-  .header_mid h1 {
-    font-size: 1.2em;
-    margin: 0.2em 0 0 0;
-    color: white; }
-
-.header_right {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
-  text-align: center;
-  height: 2em; }
-  .header_right:last-child {
-    margin-right: 0; }
-
-.header_btn {
-  width: 100%;
-  font-size: 0.5em;
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: white;
-  padding: 0.25em 0.5em;
-  height: 100%; }
-  .header_btn:focus {
-    outline: 0; }
-  .header_btn:hover {
-    cursor: pointer; }
-
 .ctryCont {
   width: 100%; }
 
@@ -268,21 +272,16 @@ a:hover, a:active {
   background-color: white;
   border-top: 1px solid #464646;
   text-align: center;
-  padding: 0 0.8em; }
-  @media screen and (min-width: 1200px) {
-    .ctryGraphicsCont {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .ctryGraphicsCont:last-child {
-        margin-right: 0; } }
+  padding: 0.1em; }
 
 .flag_cont {
   width: 100%;
   overflow: hidden;
   height: 8em;
   margin: 0.5em 0; }
+  @media screen and (min-width: 768px) {
+    .flag_cont {
+      height: 13em; } }
 
 .flag {
   border-radius: 0.2em;
@@ -292,9 +291,10 @@ a:hover, a:active {
   width: 100%;
   overflow: hidden;
   height: 8em;
-  background-color: white;
-  border-radius: 0.3em;
-  padding: 0.2em 0; }
+  margin: 0.5em 0; }
+  @media screen and (min-width: 768px) {
+    .map_cont {
+      height: 13em; } }
 
 .map {
   border-radius: 0.2em;
@@ -304,19 +304,14 @@ a:hover, a:active {
   width: 100%;
   overflow: hidden;
   color: white; }
-  @media screen and (min-width: 1200px) {
-    .ctryInfoCont {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      .ctryInfoCont:last-child {
-        margin-right: 0; } }
 
 .country_title {
   text-align: center;
   margin: 0.2em 0;
   font-size: 1.2em; }
+  @media screen and (min-width: 768px) {
+    .country_title {
+      font-size: 1.5em; } }
 
 .line_container {
   width: 100%;
@@ -334,6 +329,9 @@ a:hover, a:active {
   font-size: 1em; }
   .left:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .left {
+      font-size: 1.5em; } }
 
 .right {
   float: left;
@@ -346,3 +344,6 @@ a:hover, a:active {
   font-size: 1em; }
   .right:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 768px) {
+    .right {
+      font-size: 1.5em; } }
