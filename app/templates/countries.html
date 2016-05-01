@@ -1,28 +1,30 @@
-<header>
-	<h1 ng-class="header_home ? 'header_home' : 'header_routes'">Countries &#38; Capitals</h1>
+<header class="header">
+	<div class="header_left">
+		<button class="header_btn" ng-click="toHome()">Home</button>
+	</div>
+	<div class="header_mid">
+		<h1 class="header_title">Countries &#38; Capitals</h1>
+	</div>
 </header>
-<div class="homeBtnCont">
-	<button class="homeBtn" ng-click="toHome()">Home</button>
-</div>
 <table class="ctryTable">
 	<thead>
 		<tr>
-			<th class="country">Name</th>
-			<th class="code">Country Code</th>
-			<th class="capital">Capital</th>
-			<th class="area">Area in Sq. Km</th>
-			<th class="population">Population</th>
-			<th class="continent">Continent</th>
+			<th class="country"><p>Name</p></th>
+			<th class="code"><p>Country Code</p></th>
+			<th class="capital"><p>Capital</p></th>
+			<th class="area"><p>Area in Sq. Km</p></th>
+			<th class="population"><p>Population</p></th>
+			<th class="continent"><p>Continent</p></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-odd="'odd'">
-			<td class="country" >{{ctry.countryName}}</td>
-	        <td class="code">{{ctry.countryCode}}</td>
-	        <td class="capital">{{ctry.capital}}</td>
-	        <td class="area" >{{ctry.areaInSqKm}}</td>
-	        <td class="population">{{ctry.population}}</td>
-	        <td class="continent">{{ctry.continentName}}</td>
+			<td class="country"><p>{{ctry.countryName}}</p></td>
+	        <td class="code"><p>{{ctry.countryCode}}</p></td>
+	        <td class="capital"><p>{{ctry.capital}}</p></td>
+	        <td class="area"><p>{{ctry.areaInSqKm}}</p></td>
+	        <td class="population"><p>{{ctry.population}}</p></td>
+	        <td class="continent"><p>{{ctry.continentName}}</p></td>
 		</tr>
 	</tbody>
 </table>
