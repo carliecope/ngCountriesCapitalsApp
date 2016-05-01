@@ -10,9 +10,9 @@
 			<thead>
 				<tr>
 					<th class="country"><p>Name</p></th>
-					<th class="code"><p>Country Code</p></th>
+					<th class="code"><p>Code</p></th>
 					<th class="capital"><p>Capital</p></th>
-					<th class="area"><p>Area in Sq. Km</p></th>
+					<th class="area"><p>Area (km<sup>2</sup>)</p></th>
 					<th class="population"><p>Population</p></th>
 					<th class="continent"><p>Continent</p></th>
 				</tr>
@@ -27,8 +27,8 @@
 				<td class="country"><p>{{ctry.countryName}}</p></td>
 		        <td class="code"><p>{{ctry.countryCode}}</p></td>
 		        <td class="capital"><p>{{ctry.capital}}</p></td>
-		        <td class="area"><p>{{ctry.areaInSqKm}}</p></td>
-		        <td class="population"><p>{{ctry.population}}</p></td>
+		        <td class="area"><p>{{ctry.areaInSqKm | number:0 }}</p></td>
+		        <td class="population"><p>{{ctry.population | number:0 }}</p></td>
 		        <td class="continent"><p>{{ctry.continentName}}</p></td>
 			</tr>
 		</tbody>
