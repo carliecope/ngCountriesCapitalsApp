@@ -9,6 +9,7 @@ $md_max_width: 1024px;
 $off_white: #ECECEC;
 $gray_dk: #151D23;
 $gray_lt: #EBEAEA;
+$wheatfield: #F1E8C6;
 
 
 html {
@@ -27,7 +28,7 @@ a:hover, a:active {
     text-decoration: none;
 }
 .background {
-	background-image: url('../img/background.jpeg');
+	background-color: $gray_dk;
 	background-size: cover;
 	background-repeat: no-repeat;
     display: block;
@@ -39,6 +40,11 @@ a:hover, a:active {
     z-index: -1;
     opacity: 0.6;
 	height: 100vh;
+
+	@media screen and (min-width: $md_min_width) {
+		background-image: url('../img/background.jpeg');
+
+	}
 }
 /*----------------------Header----------------------*/
 .routeCont {
@@ -65,7 +71,7 @@ a:hover, a:active {
 	margin: 0;
     font-size: 1.2em;
     background-color: $gray_dk;
-
+	
     @media screen and (min-width: $md_max_width) {
 		@include span-columns(8);
 		@include shift(2);
@@ -75,6 +81,12 @@ a:hover, a:active {
 	position: fixed;
     z-index: 9999;
     top: 0;
+}
+.transparent {
+
+	@media screen and (min-width: $md_min_width) {
+		background-color: transparent;
+	}
 }
 .header_left {
 	@include span-columns(2 of 12);
@@ -151,7 +163,12 @@ a:hover, a:active {
 	text-align: center;
 	padding: 0.5em 1em;
 	color: white;
-
+	a {
+		&:link { color: $wheatfield };
+		&:visited{ color: $gray_lt };
+		&:hover{ color: $off_white };
+		&:active{ color: $gray_lt };
+	}
 	@media screen and (min-width: $md_min_width) {
 		padding: 2em 8em;
     	font-size: 1.1em;
@@ -222,6 +239,7 @@ a:hover, a:active {
 
 	@media screen and (min-width: $md_min_width) {
 		margin-top: 4.5em;
+		opacity: 0.9;
 	}
 
 	@media screen and (min-width: $md_max_width) {
@@ -289,6 +307,9 @@ a:hover, a:active {
 
 	@media screen and (min-width: $md_max_width) {
 		@include span-columns(6);
+		margin-top: 6em;
+		border-radius: 0.3em;
+    	opacity: 0.8;
 	}
 }
 .flag_cont {
@@ -302,7 +323,7 @@ a:hover, a:active {
 	}
 }
 .flag {
-	border-radius: 0.2em;
+	border-radius: 0.3em;
 	height: 100%;
 }
 .map_cont {
@@ -326,6 +347,7 @@ a:hover, a:active {
 
 	@media screen and (min-width: $md_max_width) {
 		@include span-columns(6);
+		margin-top: 6em;
 	}
 }
 .country_title {
