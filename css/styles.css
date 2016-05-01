@@ -8,7 +8,7 @@ html {
 html {
   box-sizing: border-box;
   list-style-type: none;
-  background-color: #333333;
+  background-color: #151D23;
   font-family: 'Source Sans Pro', sans-serif; }
 
 *, *:before, *:after {
@@ -20,12 +20,28 @@ a:link, a:visited {
 a:hover, a:active {
   text-decoration: none; }
 
-body {
-  background-color: transparent; }
+.background {
+  background-image: url("../img/background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  height: 100vh; }
 
 /*----------------------Header----------------------*/
 .routeCont {
-  background-color: transparent; }
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 .wrapper {
   overflow: hidden; }
@@ -46,7 +62,7 @@ body {
   color: white;
   margin: 0;
   font-size: 1.2em;
-  background-color: #333333; }
+  background-color: #151D23; }
   @media screen and (min-width: 1024px) {
     .header {
       float: left;
@@ -154,7 +170,7 @@ body {
   font-size: 1em;
   background-color: white;
   border: 1px solid white;
-  color: #333333;
+  color: #151D23;
   border-radius: 0.3em;
   padding: 0.5em 0.7em; }
   .toCountriesBtn:focus {
@@ -191,14 +207,17 @@ body {
           font-size: 1em; } }
   .ctryTable thead {
     background-color: white;
-    border-bottom: 2px solid #333333;
-    color: #333333;
+    border-bottom: 2px solid #151D23;
+    color: #151D23;
     overflow: hidden; }
   .ctryTable td:hover {
     cursor: pointer; }
 
 .table_2 {
-  margin-top: 4.5em; }
+  margin-top: 4.2em; }
+  @media screen and (min-width: 768px) {
+    .table_2 {
+      margin-top: 4.5em; } }
   @media screen and (min-width: 1024px) {
     .table_2 {
       margin-top: 5.8em; } }
@@ -297,7 +316,7 @@ body {
 .ctryGraphicsCont {
   width: 100%;
   background-color: white;
-  border-top: 1px solid #333333;
+  border-top: 1px solid #151D23;
   text-align: center;
   padding: 0.1em; }
   @media screen and (min-width: 1024px) {
