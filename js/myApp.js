@@ -61,15 +61,12 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 	})
 	.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
-		$scope.header_home = true;
 
 		$scope.viewCountries = function() {
-			console.log("view countries");
 			$location.path('/countries');
 		};
 	}])
 	.controller('CountriesCtrl', ['$scope', '$http', '$location', 'currentCountry', function($scope, $http, $location, currentCountry) {
-		$scope.header_home = false;
 
 		//Get countries list from 'countryInfo' endpoint
 		$http.get(

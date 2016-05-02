@@ -7,8 +7,8 @@ $md_min_width: 768px;
 $md_max_width: 1024px;
 
 $off_white: #ECECEC;
-$gray_dk: #151D23;
-$gray_lt: #EBEAEA;
+$gray_dk: #192B39;
+$gray_lt: #919A9A;
 $wheatfield: #F1E8C6;
 
 
@@ -41,12 +41,11 @@ a:hover, a:active {
     opacity: 0.6;
 	height: 100vh;
 
-	@media screen and (min-width: $md_min_width) {
+	@media screen and (min-width: $md_max_width) {
 		background-image: url('../img/background.jpeg');
 
 	}
 }
-/*----------------------Header----------------------*/
 .routeCont {
     background-color: transparent;
     position: absolute;
@@ -63,6 +62,7 @@ a:hover, a:active {
 		@include shift(2);
 	}
 }
+/*----------------------Header----------------------*/
 .header {
 	@include fill-parent;
 	overflow: hidden;
@@ -71,24 +71,8 @@ a:hover, a:active {
 	margin: 0;
     font-size: 1.2em;
     background-color: $gray_dk;
-	
-    @media screen and (min-width: $md_max_width) {
-		@include span-columns(8);
-		@include shift(2);
-	}
 }
-.fixed {
-	position: fixed;
-    z-index: 9999;
-    top: 0;
-}
-.transparent {
-
-	@media screen and (min-width: $md_min_width) {
-		background-color: transparent;
-	}
-}
-.header_left {
+.header_btn_cont {
 	@include span-columns(2 of 12);
 	text-align: center;
 	height: 2em;
@@ -97,33 +81,14 @@ a:hover, a:active {
 		height: 3em;
 	}
 }
-.header_mid {
-	@include span-columns(8 of 12);
-	text-align: center;
-	height: 2em;
-
-	@media screen and (min-width: $md_max_width) {
-		height: 3em;
-	}
-	
-	.header_title {
-		font-size: 1.2em;
-		margin: 0.2em 0 0 0;
-		color: white;
-		
-		@media screen and (min-width: $md_max_width) {
-			font-size: 1.8em;
-		}
-	}
+.header_right_shift_10 {
+	@include shift(10);
 }
-.header_right {
-	@include span-columns(2 of 12);
-	text-align: center;
-	height: 2em;
-
-	@media screen and (min-width: $md_max_width) {
-		height: 3em;
-	}
+.header_right_shift_8 {
+	@include shift(8);
+}
+.header_white {
+	background-color: white;
 }
 .header_btn {
 	@include fill-parent;
@@ -141,7 +106,7 @@ a:hover, a:active {
 		cursor: pointer;
 	}
 
-	@media screen and (min-width: $md_max_width) {
+	@media screen and (min-width: $md_min_width) {
 		font-size: 0.8em;
 	}
 }
@@ -165,9 +130,9 @@ a:hover, a:active {
 	color: white;
 	a {
 		&:link { color: $wheatfield };
-		&:visited{ color: $gray_lt };
+		&:visited{ color: white };
 		&:hover{ color: $off_white };
-		&:active{ color: $gray_lt };
+		&:active{ color: white };
 	}
 	@media screen and (min-width: $md_min_width) {
 		padding: 2em 8em;
@@ -196,6 +161,20 @@ a:hover, a:active {
 	}
 }
 /*----------------------Countries----------------------*/
+.fixed {
+	position: fixed;
+    z-index: 9999;
+    top: 0;
+}
+.fixed_table {
+	position: fixed;
+    z-index: 9999;
+    top: 2.4em;
+
+    @media screen and (min-width: $md_max_width) {
+    	top: 3.6em;
+    }
+}
 .ctryTable {
 	@include fill-parent;
 	background-color: white;
@@ -235,15 +214,15 @@ a:hover, a:active {
 	}
 }
 .table_2 {
-	margin-top: 4.2em;
+	margin-top: 3.9em;
 
 	@media screen and (min-width: $md_min_width) {
-		margin-top: 4.5em;
+		margin-top: 4.2em;
 		opacity: 0.9;
 	}
 
 	@media screen and (min-width: $md_max_width) {
-		margin-top: 5.8em;
+		margin-top: 5.2em;
 	}
 }
 .odd {
