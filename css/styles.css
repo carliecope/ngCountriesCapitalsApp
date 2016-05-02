@@ -70,8 +70,8 @@ a:hover, a:active {
 .header_btn_cont {
   float: left;
   display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
+  margin-right: 3.57866%;
+  width: 9.36867%;
   text-align: center;
   height: 2em; }
   .header_btn_cont:last-child {
@@ -80,11 +80,11 @@ a:hover, a:active {
     .header_btn_cont {
       height: 3em; } }
 
-.header_right_shift_10 {
-  margin-left: 85.29804%; }
+.header_right_shift_7 {
+  margin-left: 90.63133%; }
 
-.header_right_shift_8 {
-  margin-left: 68.23843%; }
+.header_right_shift_6 {
+  margin-left: 77.684%; }
 
 .header_white {
   background-color: white; }
@@ -298,7 +298,22 @@ a:hover, a:active {
 
 /*----------------------Country----------------------*/
 .ctryCont {
-  width: 100%; }
+  width: 100%;
+  background-color: transparent;
+  overflow: hidden;
+  position: relative;
+  height: 100%; }
+  .ctryCont::before {
+    content: ' '; }
+    @media screen and (min-width: 1024px) {
+      .ctryCont::before {
+        background-color: white;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0.2;
+        z-index: -1; } }
 
 .ctryGraphicsCont {
   width: 100%;

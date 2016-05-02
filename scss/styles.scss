@@ -73,7 +73,7 @@ a:hover, a:active {
     background-color: $gray_dk;
 }
 .header_btn_cont {
-	@include span-columns(2 of 12);
+	@include span-columns(1 of 8);
 	text-align: center;
 	height: 2em;
 
@@ -81,11 +81,11 @@ a:hover, a:active {
 		height: 3em;
 	}
 }
-.header_right_shift_10 {
-	@include shift(10);
+.header_right_shift_7 {
+	@include shift(7 of 8);
 }
-.header_right_shift_8 {
-	@include shift(8);
+.header_right_shift_6 {
+	@include shift(6 of 8);
 }
 .header_white {
 	background-color: white;
@@ -276,6 +276,24 @@ a:hover, a:active {
 /*----------------------Country----------------------*/
 .ctryCont {
 	@include fill-parent;
+	background-color: transparent;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+
+	&::before {
+		content: ' ';
+
+		@media screen and (min-width: $md_max_width) {
+			background-color: white;
+			position: absolute;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0.2;
+			z-index: -1;
+		}
+	}
 }
 .ctryGraphicsCont {
 	@include fill-parent;
