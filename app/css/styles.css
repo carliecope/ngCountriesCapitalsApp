@@ -8,7 +8,7 @@ html {
 html {
   box-sizing: border-box;
   list-style-type: none;
-  background-color: #151D23;
+  background-color: #192B39;
   font-family: 'Source Sans Pro', sans-serif; }
 
 *, *:before, *:after {
@@ -21,7 +21,7 @@ a:hover, a:active {
   text-decoration: none; }
 
 .background {
-  background-color: #151D23;
+  background-color: #192B39;
   background-size: cover;
   background-repeat: no-repeat;
   display: block;
@@ -33,11 +33,10 @@ a:hover, a:active {
   z-index: -1;
   opacity: 0.6;
   height: 100vh; }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     .background {
       background-image: url("../img/background.jpeg"); } }
 
-/*----------------------Header----------------------*/
 .routeCont {
   background-color: transparent;
   position: absolute;
@@ -58,6 +57,7 @@ a:hover, a:active {
       .wrapper:last-child {
         margin-right: 0; } }
 
+/*----------------------Header----------------------*/
 .header {
   width: 100%;
   overflow: hidden;
@@ -65,71 +65,29 @@ a:hover, a:active {
   color: white;
   margin: 0;
   font-size: 1.2em;
-  background-color: #151D23; }
-  @media screen and (min-width: 1024px) {
-    .header {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 65.88078%;
-      margin-left: 17.05961%; }
-      .header:last-child {
-        margin-right: 0; } }
+  background-color: #192B39; }
 
-.fixed {
-  position: fixed;
-  z-index: 9999;
-  top: 0; }
-
-@media screen and (min-width: 768px) {
-  .transparent {
-    background-color: transparent; } }
-
-.header_left {
+.header_btn_cont {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 14.70196%;
   text-align: center;
   height: 2em; }
-  .header_left:last-child {
+  .header_btn_cont:last-child {
     margin-right: 0; }
   @media screen and (min-width: 1024px) {
-    .header_left {
+    .header_btn_cont {
       height: 3em; } }
 
-.header_mid {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  text-align: center;
-  height: 2em; }
-  .header_mid:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 1024px) {
-    .header_mid {
-      height: 3em; } }
-  .header_mid .header_title {
-    font-size: 1.2em;
-    margin: 0.2em 0 0 0;
-    color: white; }
-    @media screen and (min-width: 1024px) {
-      .header_mid .header_title {
-        font-size: 1.8em; } }
+.header_right_shift_10 {
+  margin-left: 85.29804%; }
 
-.header_right {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 14.70196%;
-  text-align: center;
-  height: 2em; }
-  .header_right:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 1024px) {
-    .header_right {
-      height: 3em; } }
+.header_right_shift_8 {
+  margin-left: 68.23843%; }
+
+.header_white {
+  background-color: white; }
 
 .header_btn {
   width: 100%;
@@ -143,7 +101,7 @@ a:hover, a:active {
     outline: 0; }
   .header_btn:hover {
     cursor: pointer; }
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 768px) {
     .header_btn {
       font-size: 0.8em; } }
 
@@ -167,11 +125,11 @@ a:hover, a:active {
   .intro a:link {
     color: #F1E8C6; }
   .intro a:visited {
-    color: #EBEAEA; }
+    color: white; }
   .intro a:hover {
     color: #ECECEC; }
   .intro a:active {
-    color: #EBEAEA; }
+    color: white; }
   @media screen and (min-width: 768px) {
     .intro {
       padding: 2em 8em;
@@ -185,7 +143,7 @@ a:hover, a:active {
   font-size: 1em;
   background-color: white;
   border: 1px solid white;
-  color: #151D23;
+  color: #192B39;
   border-radius: 0.3em;
   padding: 0.5em 0.7em; }
   .toCountriesBtn:focus {
@@ -196,6 +154,19 @@ a:hover, a:active {
     cursor: pointer; }
 
 /*----------------------Countries----------------------*/
+.fixed {
+  position: fixed;
+  z-index: 9999;
+  top: 0; }
+
+.fixed_table {
+  position: fixed;
+  z-index: 9999;
+  top: 2.4em; }
+  @media screen and (min-width: 1024px) {
+    .fixed_table {
+      top: 3.6em; } }
+
 .ctryTable {
   width: 100%;
   background-color: white;
@@ -222,24 +193,24 @@ a:hover, a:active {
           font-size: 1em; } }
   .ctryTable thead {
     background-color: white;
-    border-bottom: 2px solid #151D23;
-    color: #151D23;
+    border-bottom: 2px solid #192B39;
+    color: #192B39;
     overflow: hidden; }
   .ctryTable td:hover {
     cursor: pointer; }
 
 .table_2 {
-  margin-top: 4.2em; }
+  margin-top: 3.9em; }
   @media screen and (min-width: 768px) {
     .table_2 {
-      margin-top: 4.5em;
+      margin-top: 4.2em;
       opacity: 0.9; } }
   @media screen and (min-width: 1024px) {
     .table_2 {
-      margin-top: 5.8em; } }
+      margin-top: 5.2em; } }
 
 .odd {
-  background-color: #EBEAEA; }
+  background-color: #919A9A; }
 
 .country {
   float: left;
@@ -332,7 +303,7 @@ a:hover, a:active {
 .ctryGraphicsCont {
   width: 100%;
   background-color: white;
-  border-top: 1px solid #151D23;
+  border-top: 1px solid #192B39;
   text-align: center;
   padding: 0.1em; }
   @media screen and (min-width: 1024px) {
