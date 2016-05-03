@@ -13,53 +13,82 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			template: '<p>Error - Page not Found</p>'
 		});
 	}])
-	.factory('currentCountry', function() {
+	.factory('currentCountry', ['$cacheFactory', function($cacheFactory) {
 		var ctryPop = 0;
 		var ctryArea = 0;
 		var geonameId = 0;
 		var capital = "";
 		var country = "";
 		var code = "";
+		var capitalPop = 0;
+		var neighborNum = 0;
+		var cache = $cacheFactory('cacheId');
+		
+		var put = function(key, value) {
+		
+			cache.put(key, angular.isUndefined(value) ? null : value);
+		};
+		var get = function(key) {
+			return cache.get(key);
+		}
 		
 		return {
 			setCtryPop: function(population) {
-				ctryPop = population;
+				put('ctryPop', population);
 			},
 			getCtryPop: function() {
-				return ctryPop;
+				return get('ctryPop');
 			},
 			setCtryArea: function(area) {
-				ctryArea = area;
+				put('ctryArea', area);
 			},
 			getCtryArea: function() {
-				return ctryArea;
+				return get('ctryArea');
 			},
 			setGeonameId: function(id) {
-				geonameId = id;
+				put('geonameId', id);
 			},
 			getGeonameId: function() {
-				return geonameId;
+				return get('geonameId');
 			},
 			setCountry: function(newCountry) {
-				country = newCountry;
+				put('country', newCountry);
 			},
 			getCountry: function() {
-				return country;
+				return get('country');
 			},
 			setCapital: function(newCapital) {
-				capital = newCapital;
+				put('capital', newCapital);
 			},
 			getCapital: function() {
-				return capital;
+				return get('capital');
 			},
 			setCode: function(newCode) {
-				code = newCode;
+				put('code', newCode);
 			},
 			getCode: function() {
-				return code;
+				return get('code');
+			},
+			setCapitalPop: function(newCapitalPop) {
+				put('capitalPop', newCapitalPop);
+			},
+			getCapitalPop: function() {
+				return get('capitalPop');
+			},
+			setNeighbors: function(newNeighbors) {
+				put('neighbors', newNeighbors);
+			},
+			getNeighbors: function() {
+				return get('neighbors');
+			},
+			setNeighborNum: function(newNeighborNum) {
+				put('neighborNum', newNeighborNum);
+			},
+			getNeighborNum: function() {
+				return $scope.get('neighborNum');
 			}
 		};
-	})
+	}])
 	.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
 
 		$scope.viewCountries = function() {
@@ -100,7 +129,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 	}])
 	.controller('CountryCtrl', ['$scope', '$http', '$routeParams', '$location', 'currentCountry', function($scope, $http, $routeParams, $location, currentCountry) {
-		$scope.header_home = false;
 
 		//Scope variables 
 		$scope.country = currentCountry.getCountry();
@@ -133,9 +161,11 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 				if(response.data.geonames.length !== 0) {
 					$scope.capitalPop = response.data.geonames[0].population;
+					currentCountry.setCapitalPop($scope.capitalPop);
 
 				} else {
 					$scope.capitalPop = "NA";
+					currentCountry.setCapitalPop($scope.capitalPop);
 				}
 				
 			}, function(response) {
@@ -155,12 +185,14 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		}).then(function(response) {
 			console.log(response);
 			$scope.neighborNum = response.data.geonames.length;
+			currentCountry.setNeighborNum($scope.neighborNum); 
 
 			var neighbors = [];
 
 			for(i=0; i < $scope.neighborNum; i++) {
 				neighbors.push(response.data.geonames[i].countryName);
 				$scope.neighbors = neighbors.join(', ');
+				currentCountry.setNeighbors($scope.neighbors); 
 			}
 		}, function(response) {
 			console.log('error');
