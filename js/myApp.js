@@ -14,15 +14,16 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		});
 	}])
 	.factory('currentCountry', ['$cacheFactory', function($cacheFactory) {
-		var ctryPop = 0;
-		var ctryArea = 0;
-		var geonameId = 0;
-		var capital = "";
-		var country = "";
-		var code = "";
-		var capitalPop = 0;
-		var neighborNum = 0;
-		var cache = $cacheFactory('cacheId');
+		// var ctryPop = 0;
+		// var ctryArea = 0;
+		// var geonameId = 0;
+		// var capital = "";
+		// var country = "";
+		// var code = "";
+		// var toLowerCaseCode = "";
+		// var capitalPop = 0;
+		// var neighborNum = 0;
+		var cache = $cacheFactory();
 		
 		var put = function(key, value) {
 		
@@ -30,7 +31,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 		var get = function(key) {
 			return cache.get(key);
-		}
+		};
 		
 		return {
 			setCtryPop: function(population) {
@@ -69,6 +70,12 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			getCode: function() {
 				return get('code');
 			},
+			setLowerCaseCode: function(newCode) {
+				put('toLowerCaseCode', newCode);
+			},
+			getLowerCaseCode: function() {
+				return get('toLowerCaseCode');
+			},
 			setCapitalPop: function(newCapitalPop) {
 				put('capitalPop', newCapitalPop);
 			},
@@ -101,7 +108,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		$http.get(
 			'http://api.geonames.org/countryInfoJSON?username=carliecope', { cache: true }
 			).then(function(response) {
-				console.log(response);
+				// console.log(response);
 				var ctryList = response.data.geonames;
 
 				for(i = 0; i < ctryList.length; i++) {
@@ -121,6 +128,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			currentCountry.setCountry(country);
 			currentCountry.setCapital(capital);
 			currentCountry.setCode(code);
+			currentCountry.setLowerCaseCode(code.toLowerCase());
 
 			$location.path('/countries/' + country + '/' + capital);
 		}; 
@@ -142,8 +150,8 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		$scope.geonameId = currentCountry.getGeonameId();
 
 		$scope.codeUpperCase = currentCountry.getCode();
-
-		$scope.codeLowerCase = currentCountry.getCode().toLowerCase();
+		
+		$scope.codeLowerCase = currentCountry.getLowerCaseCode();
 
 		//Get capital population from 'search' endpoint
 		var requestSearch = {
@@ -154,10 +162,11 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		$http({
 			url: 'http://api.geonames.org/searchJSON?q=' + $scope.capital + '&featureCode=PPLC&maxRows=10&username=carliecope',
 			method: 'GET',
+			cache: true,
 			params: requestSearch,
 			}).then(function(response) {
 
-				console.log(response);
+				// console.log(response);
 
 				if(response.data.geonames.length !== 0) {
 					$scope.capitalPop = response.data.geonames[0].population;
@@ -181,9 +190,10 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		$http({
 			url: 'http://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope',
 			method: 'GET',
+			cache: true,
 			params: requestNeighbors,
 		}).then(function(response) {
-			console.log(response);
+			// console.log(response);
 			$scope.neighborNum = response.data.geonames.length;
 			currentCountry.setNeighborNum($scope.neighborNum); 
 
