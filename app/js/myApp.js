@@ -14,15 +14,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		});
 	}])
 	.factory('currentCountry', ['$cacheFactory', function($cacheFactory) {
-		// var ctryPop = 0;
-		// var ctryArea = 0;
-		// var geonameId = 0;
-		// var capital = "";
-		// var country = "";
-		// var code = "";
-		// var toLowerCaseCode = "";
-		// var capitalPop = 0;
-		// var neighborNum = 0;
 		var cache = $cacheFactory();
 		
 		var put = function(key, value) {
@@ -106,7 +97,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 		//Get countries list from 'countryInfo' endpoint
 		$http.get(
-			'https://api.geonames.org/countryInfoJSON?username=carliecope', { cache: true }
+			'https://api.geonames.org/countryInfoJSON?username=carliecope/', { cache: true }
 			).then(function(response) {
 				// console.log(response);
 				var ctryList = response.data.geonames;
@@ -160,7 +151,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 
 		$http({
-			url: 'https://api.geonames.org/searchJSON?q=' + $scope.capital + '&featureCode=PPLC&maxRows=10&username=carliecope',
+			url: 'https://api.geonames.org/searchJSON?q=' + $scope.capital + '&featureCode=PPLC&maxRows=10&username=carliecope/',
 			method: 'GET',
 			cache: true,
 			params: requestSearch,
@@ -188,7 +179,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 		// http://api.geonames.org/neighbours?geonameId=2658434&username=demo
 		$http({
-			url: 'https://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope',
+			url: 'https://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope/',
 			method: 'GET',
 			cache: true,
 			params: requestNeighbors,
