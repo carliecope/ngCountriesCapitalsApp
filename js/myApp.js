@@ -96,10 +96,14 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 	.controller('CountriesCtrl', ['$scope', '$http', '$location', 'currentCountry', function($scope, $http, $location, currentCountry) {
 
 		//Get countries list from 'countryInfo' endpoint
-		$http.get(
-			'https://api.geonames.org/countryInfoJSON?username=carliecope/', { cache: true }
-			).then(function(response) {
-				// console.log(response);
+		$http({
+			crossDomain: true,
+			xhrFields: {withCredentials: false},
+			url: 'https://api.geonames.org/countryInfoJSON?username=carliecope/',
+			method: 'GET',
+			cache: true
+			}).then(function(response) {
+
 				var ctryList = response.data.geonames;
 
 				for(i = 0; i < ctryList.length; i++) {
@@ -129,7 +133,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 	}])
 	.controller('CountryCtrl', ['$scope', '$http', '$routeParams', '$location', 'currentCountry', function($scope, $http, $routeParams, $location, currentCountry) {
 
-		//Scope variables 
 		$scope.country = currentCountry.getCountry();
 
 		$scope.capital = currentCountry.getCapital();
@@ -151,13 +154,13 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		};
 
 		$http({
+			crossDomain: true,
+			xhrFields: {withCredentials: false},
 			url: 'https://api.geonames.org/searchJSON?q=' + $scope.capital + '&featureCode=PPLC&maxRows=10&username=carliecope/',
 			method: 'GET',
 			cache: true,
 			params: requestSearch,
 			}).then(function(response) {
-
-				// console.log(response);
 
 				if(response.data.geonames.length !== 0) {
 					$scope.capitalPop = response.data.geonames[0].population;
@@ -177,14 +180,16 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 		var requestNeighbors = {
 			geonameId: $scope.geonameId
 		};
-		// http://api.geonames.org/neighbours?geonameId=2658434&username=demo
+		
 		$http({
+			crossDomain: true,
+			xhrFields: {withCredentials: false},
 			url: 'https://api.geonames.org/neighboursJSON?geonameId=' + $scope.geonameId + '&username=carliecope/',
 			method: 'GET',
 			cache: true,
 			params: requestNeighbors,
 		}).then(function(response) {
-			// console.log(response);
+			
 			$scope.neighborNum = response.data.geonames.length;
 			currentCountry.setNeighborNum($scope.neighborNum); 
 
