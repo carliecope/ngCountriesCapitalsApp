@@ -100,7 +100,7 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
 			crossDomain: true,
 			xhrFields: {withCredentials: false},
 			url: 'https://api.geonames.org/countryInfoJSON?username=carliecope/',
-			method: 'GET',
+			method: 'JSONP',
 			cache: true
 			}).then(function(response) {
 
