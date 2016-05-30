@@ -3,7 +3,7 @@ angular.module('DataServices', [])
 	.factory('dataFactory', ['$http', '$q', '$route', function($http, $q, $route) {
 		
 		//User name for geonames api
-		var username = "bpcoxjr";
+		var username = "carliecope";
 
 		var baseURL = "http://api.geonames.org/";
 
