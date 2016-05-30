@@ -12,37 +12,41 @@
 	<div class='ctryCont'>
 		<div class="ctryGraphicsCont">
 			<div class="flag_cont">
-				<img alt="Country Flag" class="flag" ng-src="http://www.geonames.org/flags/x/{{ codeLowerCase }}.gif"/>
+				<img alt="Country Flag" class="flag" ng-src="http://www.geonames.org/flags/x/{{flag}}.gif"/>
 			</div>
 			<div class="map_cont">
-				<img alt="Country Map" class="map" ng-src="http://www.geonames.org/img/country/250/{{ codeUpperCase }}.png"/>
+				<img alt="Country Map" class="map" ng-src="http://www.geonames.org/img/country/250/{{map}}.png"/>
 			</div>
 		</div>
 		<div class="ctryInfoCont">
-			<h2 class="country_title">{{ country }}</h2>
+			<h2 class="country_title">{{ country.countryName }}</h2>
 			<div class="line_container">
 				<h3 class="left">Population:</h3>
-				<h3 class="right">{{ ctryPop | number: 0 }}</h3>
+				<h3 class="right">{{ country.population | number: 0 }}</h3>
 			</div>
 			
 			<div class="line_container">
 				<h3 class="left">Area:</h3>
-				<h3 class="right">{{ ctryArea | number: 0 }} km<sup>2</sup></h3>
+				<h3 class="right">{{ country.areaInSqKm | number: 0 }} km<sup>2</sup></h3>
 			</div>
 
 			<div class="line_container">
 				<h3 class="left">Capital:</h3>
-				<h3 class="right">{{ capital }}</h3>
+				<h3 class="right">{{ country.capital }}</h3>
 			</div>
 			
 			<div class="line_container">
-				<h3 class="left">Population of Capital:</h3>
-				<h3 class="right">{{ capitalPop | number: 0 }}</h3>
+				<h3 class="left">Pop. of Capital:</h3>
+				<h3 class="right">{{ capitalPopulation | number: 0 }}</h3>
 			</div>
 
 			<div class="line_container">
-				<h3 class="left">{{ neighborNum }} Neighbors:</h3>
-				<h3 class="right">{{ neighbors }}</h3>
+				<h3 class="left">{{ neighbors.length }} Neighbors:</h3>
+				<div class="right">
+					<ul id="neighbors-list" ng-repeat="neighbor in neighbors">
+                    	<li><a ng-href="#/countries/{{ neighbor.countryCode | uppercase }}">{{neighbor.countryName}}</a></li>
+            		</ul>
+				</div>
 			</div>
 		</div>
 	</div>
