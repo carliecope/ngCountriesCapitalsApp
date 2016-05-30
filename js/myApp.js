@@ -47,7 +47,6 @@ angular.module('myApp', ['ngRoute', 'ngAnimate', 'DataServices', 'Data'])
 		
 		countryData.getCountry($route.current.params.countryCode).then(function(result){
     		$scope.country=result[0];
-    		console.log($scope.country);
  		});
 
  		countryData.getCapitals($route.current.params.countryCode).then(function(result){
