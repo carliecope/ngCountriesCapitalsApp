@@ -38,7 +38,6 @@ angular.module('DataServices', [])
 	        		defer.reject();
 				});
 
-				console.log(defer.promise);
 				return defer.promise;
 		    },
 
