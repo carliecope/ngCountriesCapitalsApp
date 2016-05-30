@@ -24,7 +24,7 @@
 <div class="wrapper">
 	<table class="ctryTable table_2">
 		<tbody>
-			<tr ng-repeat="ctry in ctryList" ng-click="toCountry(ctry.countryName, ctry.capital, ctry.geonameId, ctry.population, ctry.areaInSqKm, ctry.countryCode)" ng-class-odd="'odd'">
+			<tr ng-repeat="ctry in countries" ng-click="toCountry(ctry)" ng-class-odd="'odd'">
 				<td class="country"><p>{{ctry.countryName}}</p></td>
 		        <td class="code"><p>{{ctry.countryCode}}</p></td>
 		        <td class="capital"><p>{{ctry.capital}}</p></td>

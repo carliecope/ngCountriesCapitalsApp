@@ -221,6 +221,10 @@ a:hover, a:active {
 .odd {
   background-color: #919A9A; }
 
+tbody tr:hover {
+  background-color: rgba(25, 43, 57, 0.9);
+  color: white; }
+
 .country {
   float: left;
   display: block;
@@ -422,3 +426,20 @@ a:hover, a:active {
   @media screen and (min-width: 768px) {
     .right {
       font-size: 1.5em; } }
+
+#neighbors-list {
+  list-style-type: none;
+  margin: 0.1em 0;
+  padding: 0; }
+  #neighbors-list li {
+    font-size: 0.8em; }
+  #neighbors-list li a:link, #neighbors-list li a:visited {
+    color: #919A9A; }
+    @media screen and (min-width: 1024px) {
+      #neighbors-list li a:link, #neighbors-list li a:visited {
+        color: #192B39; } }
+  #neighbors-list li a:hover, #neighbors-list li a:active {
+    color: rgba(145, 154, 154, 0.7); }
+    @media screen and (min-width: 1024px) {
+      #neighbors-list li a:hover, #neighbors-list li a:active {
+        color: rgba(145, 154, 154, 0.7); } }
